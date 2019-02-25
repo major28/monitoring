@@ -1,0 +1,29 @@
+shared: &shared
+  app-name: monitoring
+  port:
+    api: 8080
+  mysql:
+    master:
+      host: localhost:3306
+      database: monitoring
+      user: root
+      password:
+  log-level: warning
+  checker:
+    interval: 20000 # milliseconds
+    timeout: 500 # milliseconds
+
+local:
+  <<: *shared
+
+dev:
+  <<: *shared
+
+uat:
+  <<: *shared
+
+live:
+  <<: *shared
+
+docker:
+  <<: *shared
